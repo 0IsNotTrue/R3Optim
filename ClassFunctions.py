@@ -247,4 +247,23 @@ class OptimR3Classifier:
             results.append(current_result)
 
         dfResult = pd.DataFrame(results)
-        return dfResultv
+        return dfResult
+class DataSymbol:
+    def __init__(self, symbol, startDate, endDate,interval = "1d"):
+        self.symbol = symbol
+        self.startDate = startDate
+        self.endDate = endDate
+        self.interval = interval
+
+    def get_priceData(self, startDate=None, endDate=None):
+        df = yf.download(self.symbol, start=startDate if startDate else self.startDate, end=endDate if endDate else self.endDate,interval=self.interval).reset_index(drop=False).rename(columns={'index': 'Date'})
+        return df
+
+    def set_priceData(self):
+        self.priceData = self.get_priceData()
+
+    def set_startDate(self, newStartDate):
+        self.startDate = newStartDate
+
+    def set_endDate(self, newEndDate):
+        self.endDate = newEndDate
