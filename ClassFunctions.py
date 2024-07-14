@@ -267,3 +267,54 @@ class DataSymbol:
 
     def set_endDate(self, newEndDate):
         self.endDate = newEndDate
+class ResultVisualizer:
+    def __init__(self, df_result):
+        self.df_result = df_result
+
+    def plot_2d(self, x_col, y_col, color_col=None, title="2D Plot", xlabel=None, ylabel=None):
+        xlabel = xlabel if xlabel is not None else x_col
+        ylabel = ylabel if ylabel is not None else y_col
+
+        if color_col:
+            fig = px.scatter(self.df_result, x=x_col, y=y_col, color=color_col, title=title)
+        else:
+            fig = px.scatter(self.df_result, x=x_col, y=y_col, title=title)
+        fig.update_layout(xaxis_title=xlabel, yaxis_title=ylabel)
+        return fig
+
+    def plot_3d(self, x_col, y_col, z_col, color_col=None, title="3D Plot", xlabel=None, ylabel=None, zlabel=None):
+        xlabel = xlabel if xlabel is not None else x_col
+        ylabel = ylabel if ylabel is not None else y_col
+        zlabel = zlabel if zlabel is not None else z_col
+
+        if color_col:
+            fig = px.scatter_3d(self.df_result, x=x_col, y=y_col, z=z_col, color=color_col, title=title)
+        else:
+            fig = px.scatter_3d(self.df_result, x=x_col, y=y_col, z=z_col, title=title)
+        fig.update_layout(scene=dict(
+            xaxis_title=xlabel,
+            yaxis_title=ylabel,
+            zaxis_title=zlabel
+        ))
+        return fig
+
+    def plot_surface(self, x_col, y_col, z_col, title="Surface Plot", xlabel=None, ylabel=None, zlabel=None):
+        xlabel = xlabel if xlabel is not None else x_col
+        ylabel = ylabel if ylabel is not None else y_col
+        zlabel = zlabel if zlabel is not None else z_col
+
+        fig = px.surface(self.df_result, x=x_col, y=y_col, z=z_col, title=title)
+        fig.update_layout(scene=dict(
+            xaxis_title=xlabel,
+            yaxis_title=ylabel,
+            zaxis_title=zlabel
+        ))
+        return fig
+
+    def plot_bar(self, x_col, y_col, title="Bar Plot", xlabel=None, ylabel=None):
+        xlabel = xlabel if xlabel is not None else x_col
+        ylabel = ylabel if ylabel is not None else y_col
+
+        fig = px.bar(self.df_result, x=x_col, y=y_col, title=title)
+        fig.update_layout(xaxis_title=xlabel, yaxis_title=ylabel)
+        return fig
