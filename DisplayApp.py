@@ -1,5 +1,5 @@
 import streamlit as st 
-from ClassFunctions import OptimR3Classifier , R3Classifier,DataSymbol
+from ClassFunctions import OptimR3Classifier , R3Classifier,DataSymbol,ResultVisualizer
 import pandas as pd 
 
 class R3Widget:
