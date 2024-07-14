@@ -1,5 +1,5 @@
 import streamlit as st 
-
+from ClassFunctions import OptimR3Classifier , R3Classifier
 
 class R3OptimApp:
     def __init__(self):
