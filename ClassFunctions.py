@@ -1,3 +1,10 @@
+import yfinance as yf
+import pandas as pd
+from sklearn.metrics import accuracy_score
+import plotly.express as px
+import plotly.graph_objects as go
+import numpy as np
+
 class R3Classifier:
     def __init__(self, ohlcDf, classificationValues : dict , typeEntry: str = "Close",numberOfEntries:int = 0):
         '''
