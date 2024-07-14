@@ -1,3 +1,6 @@
+import streamlit as st 
+
+
 class R3OptimApp:
     def __init__(self):
         self.pages = ["Load Data", "Run OptimR3Classifier", "Visualize Results"]
