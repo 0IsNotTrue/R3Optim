@@ -1,7 +1,7 @@
 import streamlit as st 
 from ClassFunctions import OptimR3Classifier , R3Classifier
 
-class R3OptimApp:
+class R3Widget:
     def __init__(self):
         self.pages = ["Load Data", "Run OptimR3Classifier", "Visualize Results"]
 
