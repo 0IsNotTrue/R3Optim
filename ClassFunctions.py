@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
-
+from collections import Counter
 class R3Classifier:
     def __init__(self, ohlcDf, classificationValues : dict , typeEntry: str = "Close",numberOfEntries:int = 0):
         '''
