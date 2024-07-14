@@ -21,7 +21,7 @@ class R3Widget:
                 df.to_csv("loaded_data.csv", index=False)
                 st.success("Data correctly insert")
         else:
-            filePath = st.text_input("CSV File name :")
+            filePath =st.file_uploader("Choisissez un fichier CSV", type="csv")
             if st.button("load CSV"):
                 df = pd.read_csv(filePath)
                 st.write(df)
