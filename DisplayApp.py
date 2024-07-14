@@ -18,7 +18,7 @@ class R3Widget:
                 df = data_symbol.get_priceData()
                 st.write("Data loaded successfully!")
                 st.write(df)
-                df.to_csv("load_data.csv", index=False)
+                df.to_csv("loaded_data.csv", index=False)
                 st.success("Data correctly insert")
         else:
             filePath = st.text_input("CSV File name :")
