@@ -1,5 +1,6 @@
 import streamlit as st 
 from ClassFunctions import OptimR3Classifier , R3Classifier
+import pandas as pd 
 
 class R3Widget:
     def __init__(self):
