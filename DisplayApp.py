@@ -25,10 +25,11 @@ class R3Widget:
             filePath =st.file_uploader("Choisissez un fichier CSV", type="csv")
             if st.button("load CSV"):
                 df = pd.read_csv(filePath)
+                df.to_csv("loaded_data.csv", index=False)
+                st.success("Data correctly insert")
                 st.write(df)
-                if st.button("insert Data"):
-                    df.to_csv("loaded_data.csv", index=False)
-                    st.success("Data correctly insert")
+
+
 
     def run_optim_r3_classifier_page(self):
         r3_range = st.slider("R3 Range", min_value=1, max_value=20, value=(1, 10))
